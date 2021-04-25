@@ -80,7 +80,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     amount,
   }: UpdateProductAmount) => {
     try {
-      const stockResponse = await api.get(`stock/${productId}`);
+      const stockResponse = await api.get<Stock>(`stock/${productId}`);
       const amountInStock = stockResponse.data.amount;
 
       if (amountInStock <= 0) {
